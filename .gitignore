@@ -1,0 +1,18 @@
+# 실행 파일
+echo_server
+chat_server
+
+# 빌드 결과물
+build/
+*.o
+*.out
+
+# 로그 파일
+*.log
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
