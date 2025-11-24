@@ -1,18 +1,74 @@
-# 실행 파일
-echo_server
-chat_server
+# Visual Studio Code
+.vscode/
+.vs/
 
-# 빌드 결과물
+# Build directories
 build/
-*.o
-*.out
+cmake-build-*/
 
-# 로그 파일
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+level*_server
+echo_server
+select_server
+poll_server
+epoll_server
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Log files
 *.log
 
-# VS Code
-.vscode/
-
-# OS
-.DS_Store
-Thumbs.db
+# Core dumps
+core
+core.*
