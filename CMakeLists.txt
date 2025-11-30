@@ -16,3 +16,9 @@ add_executable(level2_select_server
     src/level2-select/select_server.cpp
     src/common/Socket.cpp
 )
+
+# level 3: poll 기반 (Socket 클래스 사용)
+add_executable(level3_poll_server
+    src/level3-poll/poll_server.cpp
+    src/common/Socket.cpp
+)
