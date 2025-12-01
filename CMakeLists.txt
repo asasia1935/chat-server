@@ -22,3 +22,9 @@ add_executable(level3_poll_server
     src/level3-poll/poll_server.cpp
     src/common/Socket.cpp
 )
+
+# level4: epoll LT 기반
+add_executable(level4_epoll_lt_server
+    src/level4-epoll-lt/epoll_lt_server.cpp
+    src/common/Socket.cpp
+)
