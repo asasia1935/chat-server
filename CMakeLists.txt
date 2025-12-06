@@ -28,3 +28,9 @@ add_executable(level4_epoll_lt_server
     src/level4-epoll-lt/epoll_lt_server.cpp
     src/common/Socket.cpp
 )
+
+# level5: epoll ET 기반
+add_executable(level5_epoll_et_server
+    src/level5-epoll-et/epoll_et_server.cpp
+    src/common/Socket.cpp
+)
