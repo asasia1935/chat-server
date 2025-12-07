@@ -77,6 +77,34 @@ int main()
             {
                 int fd = events[i].data.fd; // 서버, 클라 가리지 않는 fd
 
+                std::cout << "[fd=" << fd << "] events: ";
+                if (events[i].events & EPOLLIN)
+                    std::cout << "EPOLLIN ";
+                if (events[i].events & EPOLLHUP)
+                    std::cout << "EPOLLHUP ";
+                if (events[i].events & EPOLLERR)
+                    std::cout << "EPOLLERR ";
+                std::cout << "\n";
+
+                if (events[i].events & (EPOLLHUP | EPOLLERR))
+                {
+                    std::cout << "클라이언트 " << fd << " 비정상 종료 (HUP/ERR)\n";
+
+                    // epoll에서 제거
+                    epoll_ctl(epoll_fd, EPOLL_CTL_DEL, fd, nullptr);
+
+                    auto it = std::find_if(clients.begin(), clients.end(),
+                                           [fd](const SocketHandle &s)
+                                           { return s.get() == fd; });
+                    if (it != clients.end())
+                    {
+                        clients.erase(it);
+                    }
+
+                    // 이 fd는 더 이상 처리할 필요 없음
+                    continue;
+                }
+
                 if (events[i].events & EPOLLIN)
                 {
                     // 직접 fd값과 서버 및 클라의 fd 값을 비교
